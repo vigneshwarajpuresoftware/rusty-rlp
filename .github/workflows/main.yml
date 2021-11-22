@@ -76,7 +76,7 @@ jobs:
       strategy:
         fail-fast: false
         matrix:
-          python-version: [3.6, 3.7, 3.8]
+          python-version: ['cp36-cp36m', 'cp37-cp37m', 'cp38-cp38', 'cp39-cp39']
           os: [ubuntu-latest]
 
       steps:
