@@ -151,11 +151,10 @@ jobs:
         - name: Installing dependencies and Building
           run: |
             docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
-            arm64v8/ubuntu \
-            bash -exc 'apt-get update && \
-            deactivate'
-            pip install --upgrade pip
-            pip install -r requirements-dev.txt
-            pip install .
-            maturin build --release --no-sdist --strip --interpreter python
+            ${{ env.img }} \
+            bash -exc '${{ env.py }} -m venv .env && \
+            pip install --upgrade pip && \
+            pip install -r requirements-dev.txt && \
+            pip install . && \
+            maturin build --release --no-sdist --strip --interpreter python && \
             deactivate'
