@@ -154,7 +154,6 @@ jobs:
             ${{ env.img }} \
             bash -exc '${{ env.py }} -m venv .env && \
             yum install python3-pip -y && \
-            pip3 install abc && \
             pip3 install --upgrade pip && \
             pip3 install -r requirements-dev.txt && \
             pip3 install . && \
