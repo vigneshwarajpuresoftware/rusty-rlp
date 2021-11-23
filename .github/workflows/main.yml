@@ -155,7 +155,7 @@ jobs:
             bash -exc '${{ env.py }} -m venv .env && \
             yum install python3-devel -y && \
             yum install python3-pip -y && \
-            curl --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal && \
+            curl --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable
             source $HOME/.cargo/env && \
             pip3 install --upgrade pip && \
             pip3 install -r requirements-dev.txt && \
