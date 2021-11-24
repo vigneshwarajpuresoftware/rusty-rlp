@@ -157,12 +157,6 @@ jobs:
             yum install python3-pip -y && \ 
             curl --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain none && \
             source $HOME/.cargo/env && \
-            wget http://musl.cc/aarch64-linux-musl-cross.tgz && \
-            tar xzf aarch64-linux-musl-cross.tgz -C /opt --strip-components=1 && \
-            export PATH=$PATH:/opt/bin && \
-            echo '[target.aarch64-unknown-linux-musl]' >> ~/.cargo/config && \
-            echo 'linker = "aarch64-linux-musl-gcc"' >> ~/.cargo/config && \
-            echo 'rustflags = [ "-C", "target-feature=+crt-static", "-C", "link-arg=-lgcc" ]' >> ~/.cargo/config && \
             pip3 install --upgrade pip && \
             pip3 install -r requirements-dev.txt && \
             pip3 install . && \
