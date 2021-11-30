@@ -153,7 +153,7 @@ jobs:
             docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
             ${{ env.img }} \
             bash -exc '${{ env.py }} -m venv .env && \
-            yum install python3-devel -y && \
+            pip install -e . && \
             python -m pip install --upgrade pip && \
             pip install -r requirements-dev.txt && \
             pip install . && \
@@ -194,6 +194,7 @@ jobs:
             docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
             ${{ env.img }} \
             bash -exc '${{ env.py }} -m venv .env && \
+            pip install -e . && \
             yum install python3-devel -y && \
             yum install python3-pip -y && \ 
             curl --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain none && \
