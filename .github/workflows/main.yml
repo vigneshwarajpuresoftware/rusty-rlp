@@ -144,10 +144,9 @@ jobs:
           with:
             command: test
 
-        - name: Set up Python ${{ matrix.python-version }}
-          uses: actions/setup-python@v1
-          with:
-            python-version: ${{ matrix.python-version }}
+        - name: Set up QEMU
+          id: qemu
+          uses: docker/setup-qemu-action@v1
 
         - name: Install dependencies
           run: |
@@ -157,9 +156,9 @@ jobs:
             python -m pip install --upgrade pip && \
             pip install -r requirements-dev.txt && \
             pip install . && \
-
-        - name: Run Python tests
-          run: pytest python_tests.py
+            pytest python_tests.py && \
+            deactivate'
+            
           
   release_aarch64:
       runs-on: ${{ matrix.os }}
