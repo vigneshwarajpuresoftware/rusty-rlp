@@ -156,10 +156,10 @@ jobs:
             ${{ env.img }} \
             bash -exc '${{ env.py }} -m venv .env && \
             source .env/bin/activate && \
-            python -m pip install --upgrade pip && \
-            pip install . && \
             curl --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain none && \
             source $HOME/.cargo/env && \
+            python -m pip install --upgrade pip && \
+            pip install . && \
             pip install -r requirements-dev.txt && \
             pytest python_tests.py && \
             deactivate'
