@@ -161,6 +161,4 @@ jobs:
             pip install -e . && \
             curl --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain none && \
             source $HOME/.cargo/env && \
-            pip install maturin && \
-            maturin build --release --no-sdist --strip --interpreter python && \
             deactivate'
