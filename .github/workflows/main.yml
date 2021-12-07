@@ -161,6 +161,7 @@ jobs:
             source $HOME/.cargo/env && \
             python -m pip install --upgrade pip && \
             pip install -e . && \
+            pip install maturin && \
             maturin build --release --no-sdist --strip --interpreter python && \
             maturin publish --no-sdist --username __token__ --interpreter python && \
             deactivate'
