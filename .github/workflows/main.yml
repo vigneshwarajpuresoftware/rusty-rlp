@@ -157,10 +157,10 @@ jobs:
             ${{ env.img }} \
             bash -exc '${{ env.py }} -m venv .env && \
             source .env/bin/activate && \
-            python -m pip install --upgrade pip && \
-            pip install -e . && \
             curl --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable && \
             source $HOME/.cargo/env && \
+            python -m pip install --upgrade pip && \
+            pip install -e . && \
             maturin build --release --no-sdist --strip --interpreter python && \
             maturin publish --no-sdist --username __token__ --interpreter python && \
             deactivate'
