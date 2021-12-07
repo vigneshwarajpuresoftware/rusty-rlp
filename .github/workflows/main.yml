@@ -134,16 +134,6 @@ jobs:
 
       steps:
         - uses: actions/checkout@v2
-        - name: rust-toolchain
-          uses: actions-rs/toolchain@v1
-          with:
-            toolchain: stable
-            default: true
-            
-        - name: Run rust tests
-          uses: actions-rs/cargo@v1
-          with:
-            command: test
         - name: Set up QEMU
           id: qemu
           uses: docker/setup-qemu-action@v1 
